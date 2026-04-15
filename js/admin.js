@@ -1368,7 +1368,7 @@ window.deleteResultSheet = async (id) => {
 // =================================================================
 function generateExamLink(examId) {
     const base = window.location.origin;
-    return `${base}/index.html?exam=${examId}`;
+    return `${baseUrl}/student-login.html?exam=${examId}`;
 }
 
 function showMainContent(sectionIdToShow) {

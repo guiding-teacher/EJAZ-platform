@@ -1,0 +1,52 @@
+<!-- START OF FILE admin-signup.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إنشاء حساب مشرف جديد</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+    /* Style for the redirect message */
+    .redirect-message {
+        display: none; /* Hidden by default */
+        color: #28a745;
+        font-weight: bold;
+        margin-top: 15px;
+        animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+<body>
+<div class="login-container">
+<h2>إنشاء حساب مشرف جديد</h2>
+<form id="signup-form">
+    <!-- [MODIFIED] Added pattern for email validation -->
+    <input type="email" id="email" placeholder="البريد الإلكتروني *" required 
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+           title="الرجاء إدخال بريد إلكتروني صالح (e.g., user@example.com)">
+    
+    <!-- [MODIFIED] Added pattern for password strength -->
+    <input type="password" id="password" placeholder="كلمة المرور *" required 
+           minlength="8"
+           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+           title="يجب أن تكون 8 أحرف على الأقل وتحتوي على أحرف وأرقام.">
+           
+    <input type="password" id="confirm-password" placeholder="تأكيد كلمة المرور *" required>
+    
+    <button type="submit" id="signup-button">إنشاء حساب</button>
+</form>
+<p id="error-message"></p>
+<!-- [NEW] Added redirect message element -->
+<p id="redirect-message" class="redirect-message">تم إنشاء الحساب بنجاح، جاري توجيهك...</p>
+<p style="margin-top: 20px;">
+    لديك حساب بالفعل؟ <a href="admin-login.html">تسجيل الدخول</a>
+</p>
+</div>
+<script type="module" src="js/admin-auth.js"></script>
+</body>
+</html>
